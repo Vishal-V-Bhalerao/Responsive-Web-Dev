@@ -27,8 +27,56 @@ html {
 /*shared*/
 /************************************************************************/
 
+section {
+    margin: 80px 0;
+}
+
+h1, h2, h3 {
+    /* website should contain only one h1 tag */
+    font-weight: 300;
+    /*font weight of big font must be redused*/
+    text-transform: uppercase;
+    /* converts all to upper case  */
+}
+
+h1 {
+    color: white;
+    margin: 0;
+    margin-bottom: 20px;
+    font-size: 240%;
+    /* relative font size 200% of font size specified by parent. 20px in html tag */
+    word-spacing: 4px;
+    letter-spacing: 1px;
+    /*important attrib*/
+}
+
+h2 {
+    font-size: 180%;
+    word-spacing: 2px;
+    text-align: center;
+    margin-bottom: 30px;
+    letter-spacing: 1px;
+}
+
+h2::after {
+    display: block;
+    height: 2px;
+    background-color: #cf6d17;
+    content: " ";
+    width: 150px;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+
+h3 {
+    font-size: 110%;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
 .btn:link,
 /*buttons or links can have diffrent states link,visit, active,hover*/
+
 .btn:visited {
     display: inline-block;
     /* inline ele (doesnt force line break) with padding and margin */
@@ -68,29 +116,35 @@ html {
     color: white;
 }
 
+.box {
+    padding: 1%;
+    box-shadow: 0px 3px 11px 0px gray;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+.box:hover{
+    box-shadow: 6px 5px 11px 0px grey;
+}
+
+.clearfix{zoom: 1;}
+.clearfix::after{
+    content: ".";
+    clear: both;
+    display: block;
+    height: 0;
+    visibility: hidden;
+}
+
 /************************************************************************/
 /*header*/
 /************************************************************************/
 
 header {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/hero.jpg"); /* two layers of background*/
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("images/hero.jpg");
+    /* two layers of background*/
     height: 100vh;
     background-size: cover;
     background-position: center;
-}
-
-h1 {  /* website should contain only one h1 tag */
-    margin: 0;
-    margin-bottom: 20px;
-    color: white;
-    font-size: 240%;
-    /* relative font size 200% of font size specified by parent. 20px in html tag */
-    font-weight: 300;
-    /*font weight of big font must be redused*/
-    text-transform: uppercase;
-    /* converts all to upper case  */
-    letter-spacing: 1px;
-    word-spacing: 4px;
 }
 
 .hero-text-box {
@@ -101,36 +155,168 @@ h1 {  /* website should contain only one h1 tag */
     transform: translate(-50%, -50%)
 }
 
-.logo{
+.logo {
     float: left;
     height: 120px;
     widows: auto;
     margin-top: 20px;
 }
-.main-nav{  /*formatting naviagtion*/
+
+.main-nav {
+    /*formatting naviagtion*/
     float: right;
     list-style: none;
     margin-top: 50px;
 }
 
-.main-nav>li{
+.main-nav>li {
     display: inline-block;
     margin-left: 40px;
 }
 
-.main-nav>li>a:link,
-.main-nav>li>a:visited{
+.main-nav>li>a:link, .main-nav>li>a:visited {
     color: white;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 70%;
-    border-bottom: 2px solid transparent; /*underline effect*/
-    transition: border-bottom 0.3s, color 0.3s ;
+    border-bottom: 2px solid transparent;
+    /*underline effect*/
+    transition: border-bottom 0.3s, color 0.3s;
     padding: 8px 0px;
 }
 
-.main-nav>li>a:hover,
-.main-nav>li>a:active{ /*underline effect*/
-    border-bottom: 2px solid  #cf6d17;
+.main-nav>li>a:hover, .main-nav>li>a:active {
+    /*underline effect*/
+    border-bottom: 2px solid #cf6d17;
     color: #e67e22
 }
+
+/************************************************************************/
+/*paragraphs*/
+/************************************************************************/
+
+.long-copy {
+    line-height: 145%; /* very important attrib for paragraph */
+    width: 70%;
+    margin: 0 15%;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.box > p{
+    font-size: 80%;
+    line-height: 145%;
+    text-align: center;
+}
+
+/************************************************************************/
+/*icons*/
+/************************************************************************/
+.icon-big{ /* icons are fonts. so treat it as a font */
+    font-size: 400%;
+    display: block;
+    color: #e67e22;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+/************************************************************************/
+/*meals*/
+/************************************************************************/
+.section-feature .long-copy{
+    margin-bottom: 40px;
+}
+
+/************************************************************************/
+/*meals*/
+/************************************************************************/
+.meals-section{
+padding: 0%;
+margin-bottom: 0px;
+}
+
+.meals-showcase{
+    list-style: none;
+    width: 100%;
+}
+
+.meals-showcase > li{
+    display: block;
+    float: left;
+    width: 25%;
+}
+.meals-photo{
+    width: 100%;
+    margin: 0px; /* because of normalize.css */
+    overflow: hidden; /* to avoid images overflow the parent and cross the screen max width */
+    background-color: black; /* to images dark*/
+}
+
+.meals-photo > img {
+    opacity: 0.7;
+    width: 100%; /* set width to parents width */
+    height: auto;/* auto will mentain the aspect ratio */
+    transform: scale(1.15); /* initial scale/zoom for image */
+    transition: transform 0.5s, opacity 0.5s ; /* for zoom out animation */
+}
+
+.meals-photo >img:hover{
+    opacity: 1;
+    transform: scale(1.03);
+}
+
+/************************************************************************/
+/*how it works*/
+/************************************************************************/
+.section-steps{
+    margin: 0px;
+    padding: 80px 0px;
+    background-color: #f4f4f4;
+}
+.step-box:first-child{ /* to select first element of class step-box */
+    text-align: right; /* it also works on inline and inline block element such as images */
+    padding-left: 3% ;/* % for responsive web dev */
+    margin-top:30px;
+}
+.step-box:last-child{
+    padding-right: 3%; 
+    margin-top:70px;
+}
+
+.app-screen{
+    width: 40%; 
+}
+.work-steps{
+    margin-bottom: 50px;
+}
+
+.work-steps:last-of-type{ /*similar to last-child*/
+    margin-bottom: 80px;
+}
+
+.work-steps  div{
+    color: #e67e22;
+    border : 2px solid #e67e22;
+    display: inline-block;
+    border-radius: 50%;
+    height: 50px; 
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    float: left;
+    font-size: 150%;
+    margin-right: 25px;
+    margin-left:40px;
+}
+
+.app-class img{
+    height: 50px;
+    width: auto;
+    margin-right: 10px;
+}
+
+.app-class:first-of-type{
+    height: 100px;
+    margin-left: 50px;
+} 
+/*  */
